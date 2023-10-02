@@ -4,7 +4,7 @@ import { GoogleLogout } from "react-google-login";
 // Types
 import { IAuth } from "types";
 
-export default function Logout({ clientId, changeUserProfile }: IAuth) {
+export default function Logout({ clientId, changeUserProfile, disabled }: IAuth) {
   const onSuccess = () => {
     changeUserProfile(null);
   };
@@ -13,6 +13,7 @@ export default function Logout({ clientId, changeUserProfile }: IAuth) {
     <GoogleLogout
       clientId={clientId}
       buttonText="Logout"
+      disabled={disabled}
       onLogoutSuccess={onSuccess}
     />
   );

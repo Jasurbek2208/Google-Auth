@@ -11,7 +11,7 @@ import Logout from "./auth/Loguot";
 import Loader from "../components/Loader";
 
 // Replace with your actual client ID
-const clientId: string = "233027103740-m9d0gsge8o59nfshelip0qd4otf0sh4u.apps.googleusercontent.com";
+const clientId: string = process.env.CLIENT_ID || "";
 
 export default function GoogleAuth() {
   const [userProfile, setUserProfile] = useState<IUserProfile>({
@@ -48,8 +48,8 @@ export default function GoogleAuth() {
     <div className="p-5 mt-12">
       <h1 className="text-3xl mb-6">Google Login Example</h1>
       <div className="flex gap-3 flex-wrap">
-        <Login clientId={clientId} changeUserProfile={changeUserProfile} changeLoading={changeLoading} />
-        <Logout clientId={clientId} changeUserProfile={changeUserProfile} changeLoading={changeLoading} />
+        <Login clientId={clientId} changeUserProfile={changeUserProfile} changeLoading={changeLoading} disabled={!!userProfile?.name} />
+        <Logout clientId={clientId} changeUserProfile={changeUserProfile} changeLoading={changeLoading} disabled={!userProfile?.name} />
       </div>
       {
       userProfile?.loading ? <Loader /> :

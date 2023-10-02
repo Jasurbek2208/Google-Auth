@@ -4,7 +4,7 @@ import { GoogleLogin } from "react-google-login";
 // Types
 import { IAuth } from "types";
 
-export default function Login({ clientId, changeUserProfile, changeLoading }: IAuth) {
+export default function Login({ clientId, changeUserProfile, changeLoading, disabled }: IAuth) {
   const responseGoogle = (response: any) => {
     if (response.accessToken) {
       console.log("Login successful!", response);
@@ -12,6 +12,7 @@ export default function Login({ clientId, changeUserProfile, changeLoading }: IA
 
     } else {
       console.log("Login failed", response);
+      changeLoading(false);
     }
   };
 
@@ -19,6 +20,7 @@ export default function Login({ clientId, changeUserProfile, changeLoading }: IA
     <GoogleLogin
       clientId={clientId}
       buttonText="Login with Google"
+      disabled={disabled}
       onSuccess={responseGoogle}
       onFailure={responseGoogle}
       cookiePolicy={"single_host_origin"}

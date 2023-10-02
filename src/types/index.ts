@@ -2,6 +2,7 @@ export interface IAuth {
   clientId: string;
   changeUserProfile: Function;
   changeLoading: Function;
+  disabled?: boolean;
 }
 
 export interface IUserProfile {

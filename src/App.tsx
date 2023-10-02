@@ -6,12 +6,13 @@ import { gapi } from "gapi-script";
 import GoogleAuth from "./pages/GoogleAuth";
 
 // Replace with your actual client ID
-const clientId =
-  "233027103740-m9d0gsge8o59nfshelip0qd4otf0sh4u.apps.googleusercontent.com";
+const clientId: string = process.env.CLIENT_ID || "";
 
 export default function App() {
   useEffect(() => {
     function start() {
+      console.log(clientId);
+      
       gapi.client.init({
         clientId: clientId,
         scope: "",
