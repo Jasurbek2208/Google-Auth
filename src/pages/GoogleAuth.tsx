@@ -11,7 +11,7 @@ import Logout from "./auth/Loguot";
 import Loader from "../components/Loader";
 
 // Replace with your actual client ID
-const clientId: string = import.meta.env.CLIENT_ID!;
+const clientId: string = "233027103740-m9d0gsge8o59nfshelip0qd4otf0sh4u.apps.googleusercontent.com";
 
 export default function GoogleAuth() {
   const [userProfile, setUserProfile] = useState<IUserProfile>({
