@@ -11,8 +11,6 @@ const clientId: string = "233027103740-m9d0gsge8o59nfshelip0qd4otf0sh4u.apps.goo
 export default function App() {
   useEffect(() => {
     function start() {
-      console.log("clientId: ", clientId);
-      
       gapi.client.init({
         clientId: clientId,
         scope: "",
