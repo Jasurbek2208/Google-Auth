@@ -6,7 +6,7 @@ import { gapi } from "gapi-script";
 import GoogleAuth from "./pages/GoogleAuth";
 
 // Replace with your actual client ID
-const clientId: string = process.env.CLIENT_ID!;
+const clientId: string = import.meta.env.CLIENT_ID!;
 
 export default function App() {
   useEffect(() => {
